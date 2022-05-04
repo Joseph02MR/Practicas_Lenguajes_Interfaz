@@ -1,23 +1,23 @@
 ; tarea 26 abril
 ; SUMA DE LOS ELEMENTOS DE UN ARREGLO
 
-TITLE  Puras mamadas
+TITLE  Tarea
 .data
-	arregloD DWORD 10000h,20000h,30000h, 40000h ;arreglo estático
-	tam_array DWORD ($ - arregloD)/4            ;4 por el tipo de dato (2 para WORD, 8 para QWORD)
+	arreglo 	WORD 1000h,2000h,3000h, 4000h
+	tam_array 	WORD ($ - arreglo)/ TYPE arreglo
 
 .code
 main proc
+	mov rbx,	0
+	mov rax,	0
+	mov esi,	OFFSET arreglo
+	mov cx,		tam_array
 	
-	mov esi,    OFFSET arregloD
-	mov ecx,    tam_array
-	mov ebx,    0
-	mov eax,    0
 ciclo:
-	add	eax,    [esi]
-	add esi,    4
+	add	ax, [esi]
+	add esi, TYPE arreglo
 	inc bx
-	cmp ecx,    ebx
+	cmp cx, bx
 	JNE ciclo
 	NOP
 
