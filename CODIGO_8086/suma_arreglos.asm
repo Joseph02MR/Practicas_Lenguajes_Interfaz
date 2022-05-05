@@ -8,18 +8,18 @@ TITLE  Tarea
 
 .code
 main proc
-	mov rbx,	0
+	mov rcx,	0
 	mov rax,	0
 	mov esi,	OFFSET arreglo
 	mov cx,		tam_array
-	
 ciclo:
 	add	ax, [esi]
 	add esi, TYPE arreglo
-	inc bx
-	cmp cx, bx
-	JNE ciclo
+	loop ciclo
 	NOP
+
+main endp
+end
 
 main endp
 end
